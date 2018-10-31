@@ -87,4 +87,3 @@ while player is False:
             player = False
         if player == "n":
             break
-
