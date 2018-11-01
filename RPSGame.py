@@ -11,6 +11,29 @@ player = False
 # make the computer pick one item at random
 computer = choices[randint(0, 2)]
 
+
+def winorlose(status):
+    print("Called the win or lose function")
+    print("*******************************")
+    print("You", status, "!", "Would you like to play again?")
+    choice = input("Y / N:")
+
+    if choice == "y" or choice == "Y":
+        global computerhealth
+        global playerhealth
+        global player
+        global computer
+
+        computerhealth = 3
+        playerhealth = 3
+        player = False
+        computer = choices[randint(0, 2)]
+
+    elif choice == "n" or choice == "N":
+        exit()
+
+
+
 # show the computer's choices in the terminal window
 print("Computer chooses: ", computer)
 
@@ -68,22 +91,10 @@ while player is False:
     player = False
     computer = choices[randint(0, 2)]
 
-    if computerhealth is X:
-        print("You Win!")
-        player = input("Would you like to play again? y / n\n")
-        computerhealth = computerhealth + 3
-        playerhealth = computerhealth
-        if player == "y":
-            player = False
-        if player == "n":
-            break
-
     if playerhealth is X:
-        print("You Lose!")
-        player = input("Would you like to play again? y / n\n")
-        playerhealth = playerhealth + 3
-        computerhealth = playerhealth
-        if player == "y":
-            player = False
-        if player == "n":
-            break
+        winorlose("Lost")
+        
+
+    if computerhealth is X:
+        winorlose("Win")
+        
